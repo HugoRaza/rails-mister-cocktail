@@ -27,7 +27,7 @@ class CocktailsController < ApplicationController
 
   def update
     @cocktail.update(cocktail_params)
-    redirect_to cocktails_path(@cocktail)
+    redirect_to cocktail_path(@cocktail)
   end
 
   def destroy
@@ -42,6 +42,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :address, :phone_number, :category)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end

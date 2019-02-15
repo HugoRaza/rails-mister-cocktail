@@ -1,11 +1,10 @@
 <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
 
-        <h1>
-           <%= @cocktail.name %>
-        </h1>
-
+    <h1>
+      <%= @cocktail.name %>
+    </h1>
+  <div class="row justify-content-between">
+      <div class="col-sm-6 offset-sm-6">
         <% @cocktail.doses.each do |dose|  %>
         <ul>
           <li>
@@ -14,13 +13,30 @@
             <%= link_to '', dose_path(dose), method: :delete, :id => "logo-size", :class => "far fa-trash-alt" %>
           </li>
         </ul>
-        <% end  %>
-
-  <hr>
-  <p> <%= link_to 'add description', new_cocktail_dose_path(@cocktail) %> </p>
-
+            <% end  %>
+        <div>
+          <p> <%= link_to 'add description', new_cocktail_dose_path(@cocktail) %> </p>
+        </div>
       </div>
-    </div>
+
+      <div class="col-sm-6 offset-sm-6">
+        <div class="img-upload">
+          <%= cl_image_tag @cocktail.photo, height: 200, width: 200, crop: :fill %>
+        </div>
+        <img id="tapeone" src="http://www.pngmart.com/files/6/Tape-PNG-Pic.png" alt="">
+
+        <img id="tapetwo" src="http://www.pngmart.com/files/6/Tape-PNG-Pic.png" alt="">
+
+        <div>
+        <%= simple_form_for(@cocktail) do |f| %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.submit "Add photo", class: "btn-xs btn-primary" %>
+        <% end %>
+        </div>
+      </div>
+
   </div>
+</div>
 
 
