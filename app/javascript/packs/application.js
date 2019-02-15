@@ -9,3 +9,32 @@
 import 'bootstrap';
 
 console.log('Hello World from Webpacker')
+
+import { loadDynamicBannerText } from '../components/banner';
+    // loadDynamicBannerText();
+loadDynamicBannerText();
+
+const searchBarInput = document.querySelector('.searchInput')
+const searchBar = document.querySelector('.banner-click')
+
+searchBar.addEventListener('click', (event) => {
+  if (event.screenX > 844 && event.screenX < 1086 && event.screenY > 151 && event.screenY < 188) {
+    searchBarInput.classList.toggle("none");
+  } else {
+    return
+  }
+});
+
+
+//                   844
+// application.js:21 151
+// application.js:22 ------
+// application.js:20 846
+// application.js:21 188
+// application.js:22 ------
+// application.js:20 1086
+// application.js:21 188
+// application.js:22 ------
+// application.js:20 1086
+// application.js:21 150
+// application.js:22 ------

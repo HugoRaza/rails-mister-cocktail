@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+
+      <% @cocktails.each do |cocktail| %>
+          <h3>
+            <%= link_to cocktail.name, cocktail_path(cocktail) %>
+            <%= link_to '', cocktail_path(cocktail), method: :delete, :id => "logo-size", :class => "far fa-trash-alt", data: { confirm: "Are you sure?" } %>
+          </h3>
+          <% end %>
+
+
+    </div>
+  </div>
+</div>
+
