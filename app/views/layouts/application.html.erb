@@ -21,39 +21,27 @@
       <!-- Right Navigation -->
       <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-          <div>
-            <%= link_to '', new_cocktail_path, :id => "navbar-wagon-menu", :class => "fas fa-plus dropdown-toggle" %>
-          </div>
 
-        <form class="navbar-form navbar-left">
-          <div class="form-group navbar-search">
-            <div class="searchInput">
-              <p>
-                <span id="banner-typed-text"></span>
-              </p>
-            </div>
-            <input type="text" class="banner-click form-control" placeholder="">
+
+          <div id="banner-typed-text">
           </div>
-          <button type="submit" class="btn btn-sm btn-default">Search</button>
-        </form>
+          <div class="form">
+            <%= form_tag(cocktails_path, method: :get) do %>
+            <%= text_field_tag :term, params[:term] %>
+            <%= submit_tag 'Search' %>
+            <% end %>
+          </div>
 
         <!-- Profile picture with dropdown list -->
         <div class="navbar-wagon-item">
           <div class="dropdown">
-             <%= link_to '', cocktails_path, :id => "navbar-wagon-menu", :class => "fas fa-glass-martini dropdown-toggle" %>
+             <%= link_to '', new_cocktail_path, :id => "navbar-wagon-menu", :class => "fas fa-plus dropdown-toggle" %>
           </div>
         </div>
       </div>
 
       <!-- Dropdown appearing on mobile only -->
-      <div class="navbar-wagon-item hidden-md hidden-lg">
-        <div class="dropdown">
-          <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><a href="#">Host</a></li>
-          </ul>
-        </div>
-      </div>
+
     </div>
 
     <%= yield %>
